@@ -49,7 +49,7 @@ class TopBar extends StatelessWidget {
                     SizedBox(width: 15,),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 25, 0, 15),
-                      child: Icon(Icons.person_outline, color: Colors.white, size: 25),
+                      child: Icon(Icons.person_outline, color: Colors.white70, size: 25),
                     )
                   ],
                 ),
