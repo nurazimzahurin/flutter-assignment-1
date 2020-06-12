@@ -25,15 +25,31 @@ class ProductCard extends StatelessWidget {
                 width: double.infinity,
                 height: 70,
               ),
-              SizedBox(height: 10,),
-              Text(
-                name,
-                style: TextStyle(fontSize: 12),
+              SizedBox(
+                height: 10,
               ),
-              Text(
-                price,
-                style: TextStyle(fontSize: 10),
-                textAlign: TextAlign.end,
+              Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: 24,
+                  ),
+                  Text(
+                    name,
+                    style: TextStyle(fontSize: 12, color: Colors.black54),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: 24,
+                  ),
+                  Text(
+                    price,
+                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.start,
+                  ),
+                ],
               )
             ],
           ),

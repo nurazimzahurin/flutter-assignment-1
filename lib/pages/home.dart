@@ -10,22 +10,21 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            TopBar(),
-            TitleName(
-              name: 'Categories',
-            ),
-            Category(),
-            TitleName(name: 'Latest'),
-            Promotion(),
-            TitleName(name: 'Top Picks'),
-            Product(),
-          ],
+        appBar: newTopBar(),
+        body: SingleChildScrollView(
+                  child: Column(
+            children: <Widget>[
+              TitleName(
+                name: 'Categories',
+              ),
+              Category(),
+              TitleName(name: 'Latest'),
+              Promotion(),
+              TitleName(name: 'Top Picks'),
+              Product(),
+            ],
+          ),
         ),
-      ),
-      bottomNavigationBar: NavBar()
-    );
+        bottomNavigationBar: NavBar());
   }
 }

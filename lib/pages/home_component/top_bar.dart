@@ -57,3 +57,53 @@ class TopBar extends StatelessWidget {
             );
   }
 }
+
+Widget newTopBar(){
+  return PreferredSize(
+          preferredSize: Size.fromHeight(70.0),
+          child: AppBar(
+            backgroundColor: Colors.red[700],
+            title: Container(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      suffixIcon: Icon(Icons.search),
+                      suffixStyle: TextStyle(color: Colors.grey),
+                      hintText: 'search product...',
+                      hintStyle: TextStyle(fontSize: 12),
+                      fillColor: Colors.white,
+                      filled: true,
+                      enabledBorder: new UnderlineInputBorder(
+                          borderSide: new BorderSide(color: Colors.red)),
+                      focusedBorder: new UnderlineInputBorder(
+                          borderSide: new BorderSide(color: Colors.red))),
+                ),
+              ),
+            ),
+            actions: <Widget>[
+              SizedBox(width: 20, child: Padding(
+                padding: const EdgeInsets.only(top:18),
+                child: Image.asset('images/Messages.png'),
+              )),
+              SizedBox(
+                width: 15,
+              ),
+              SizedBox(width: 20, child: Padding(
+                padding: const EdgeInsets.only(top:18),
+                child: Image.asset('images/notifications.png'),
+              )),
+              SizedBox(
+                width: 15,
+              ),
+              SizedBox(width: 20, child: Padding(
+                padding: const EdgeInsets.only(top:18),
+                child: Image.asset('images/person.png'),
+              )),
+              SizedBox(
+                width: 15,
+              ),
+            ],
+          ),
+        );
+}
