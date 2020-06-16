@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:training_assignment_1/pages/register.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -103,7 +104,8 @@ class _LoginState extends State<Login> {
                   width: double.infinity,
                   child: FlatButton(
                     onPressed: () {
-                      if (_emailController.text == 'test' && _passwordController.text == 'test') {
+                      if (_emailController.text == 'test' &&
+                          _passwordController.text == 'test') {
                         Navigator.of(context).pushReplacementNamed('/2');
                       } else {
                         print('no');
@@ -121,9 +123,24 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              Text(
-                'Forgot password?',
-                style: TextStyle(color: Colors.indigo[900]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Forgot password?',
+                    style: TextStyle(color: Colors.indigo[900]),
+                  ),
+                  SizedBox(width:10),
+                  new InkWell(
+                      child: new Text('Register', style: TextStyle(color:Colors.indigo[900]),),
+                      onTap: () => {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Register()),
+                            )
+                          }),
+                ],
               )
             ],
           ),

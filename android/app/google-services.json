@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "73296479238",
+    "firebase_url": "https://malakat-app.firebaseio.com",
+    "project_id": "malakat-app",
+    "storage_bucket": "malakat-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73296479238:android:1ab34db6b9ef68f24e2f87",
+        "android_client_info": {
+          "package_name": "com.example.training_assignment_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "73296479238-lgt1rnv7ehqs08ms5hu1edn6d5e5h3g3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARNvKjbdmsolueMi1fES_czgPz_ymbG1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "73296479238-lgt1rnv7ehqs08ms5hu1edn6d5e5h3g3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
