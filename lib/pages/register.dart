@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:training_assignment_1/models/user.dart';
 import 'package:training_assignment_1/services/auth.dart';
+import 'package:training_assignment_1/widgets/loading.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -19,6 +19,8 @@ class _RegisterState extends State<Register> {
   String password = '';
   String error = '';
 
+  bool loading = false;
+
   final _nameController = TextEditingController();
   final _phoneController = TextEditingController();
   final _emailController = TextEditingController();
@@ -26,7 +28,7 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -145,15 +147,23 @@ class _RegisterState extends State<Register> {
                 height: 70,
                 child: FlatButton(
                   onPressed: () async {
+                    setState(() {
+                      loading = true;
+                    });
                     dynamic result =
                         await _auth.register(name, phone, email, password);
-                    if (result != User) {
+                    if (result == true) {
                       setState(() {
-                        error = result;
+                        loading = false;
                       });
-                    } else {
                       Navigator.of(context).pushNamedAndRemoveUntil(
                           '/2', (Route<dynamic> route) => false);
+                  
+                    } else {
+                      setState(() {
+                        loading = false;
+                        error = result;
+                      });
                     }
                   },
                   child: Text(
