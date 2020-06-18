@@ -153,7 +153,11 @@ class _RegisterState extends State<Register> {
                                   '/2', (Route<dynamic> route) => false);
                             } else {
                               setState(() {
-                                error = result;
+                                if(result == 'Given String is empty or null'){
+                                  error = 'Email and password are required';
+                                }else{
+                                  error = result; 
+                                }
                                 Scaffold.of(context).showSnackBar(
                                   SnackBar(
                                       content: Text(
