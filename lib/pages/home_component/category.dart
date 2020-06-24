@@ -54,7 +54,7 @@ class Category extends StatelessWidget {
                       ],
                     ),
                     shadowColor: Colors.grey,
-                    elevation: 5,
+                    elevation: 1,
                   ),
                   width: double.infinity,
                   height: 80),

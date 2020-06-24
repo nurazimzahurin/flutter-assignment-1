@@ -12,7 +12,7 @@ class ProductCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
       child: Card(
-        elevation: 2,
+        elevation: 1,
         child: Container(
           width: 100,
           decoration: BoxDecoration(

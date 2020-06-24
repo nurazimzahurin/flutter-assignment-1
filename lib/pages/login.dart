@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:training_assignment_1/pages/register.dart';
+import 'package:training_assignment_1/services/auth.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -12,6 +13,9 @@ class _LoginState extends State<Login> {
 
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  String error = '';
+
+  final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +56,7 @@ class _LoginState extends State<Login> {
               ),
               SizedBox(
                 height: 50,
+                child: Text(error, style:TextStyle(color: Colors.amber)),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
@@ -103,12 +108,15 @@ class _LoginState extends State<Login> {
                 child: SizedBox(
                   width: double.infinity,
                   child: FlatButton(
-                    onPressed: () {
-                      if (_emailController.text == 'test' &&
-                          _passwordController.text == 'test') {
+                    onPressed: () async {
+                      dynamic result = await _auth.signIn(
+                          _emailController.text, _passwordController.text);
+                      if (result == true) {
                         Navigator.of(context).pushReplacementNamed('/2');
                       } else {
-                        print('no');
+                        setState(() {
+                          error = result;
+                        });
                       }
                     },
                     child: Text(
@@ -130,9 +138,12 @@ class _LoginState extends State<Login> {
                     'Forgot password?',
                     style: TextStyle(color: Colors.indigo[900]),
                   ),
-                  SizedBox(width:10),
+                  SizedBox(width: 10),
                   new InkWell(
-                      child: new Text('Register', style: TextStyle(color:Colors.indigo[900]),),
+                      child: new Text(
+                        'Register',
+                        style: TextStyle(color: Colors.indigo[900]),
+                      ),
                       onTap: () => {
                             Navigator.push(
                               context,

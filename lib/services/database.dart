@@ -14,4 +14,12 @@ class DatabaseService {
         .document(uid)
         .setData({'name': name, 'email': email, 'phoneNumber': phoneNumber, 'password': password});
   }
+
+  Future getProfile() async {
+    return await profileCollection.document(uid).get().then((document) => document.data);
+  }
+
+  Future updateProfile(String email, String phone) async {
+    return await profileCollection.document(uid).updateData({'email': email, 'phoneNumber': phone});
+  }
 }
